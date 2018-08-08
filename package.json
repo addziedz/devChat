@@ -1,0 +1,16 @@
+{
+  "scripts": {
+    "format": "prettier --write \"{src,test}/**/*.js\"",
+    "start": "node src/server.js",
+    "test": "mocha --exit test",
+    "watch": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "express": "4.16.3"
+  },
+  "devDependencies": {
+    "mocha": "5.2.0",
+    "prettier": "1.14.0",
+    "supertest": "3.1.0"
+  }
+}
