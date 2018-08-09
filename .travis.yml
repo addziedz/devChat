@@ -1,7 +1,15 @@
 language: node_js
 node_js:
-  - "node"
-  - "8"
+- node
+- '8'
 cache:
   directories:
-    - "node_modules"
+  - node_modules  
+deploy:
+  provider: heroku
+  api_key:
+    secure: N7zE5XmYzXmKMFDIIaGfs01AI8rIwhP2j/bxRfQftDz3EWuWWo8VZWyS2nqeWHipx56RZSBMJRThyXOFFN5uMD52lA8bFTFqm9yefB+jlL+4dacDhGO1udNVDIA2mkDnAcfAcT4f1iTiESR959aop/oblW4K4FyAx7Ck6FDFWfkbDVUXR3NP90yRR+dAuJvl7gDcKo+hq2PyYSuv2kpgzLHx8jpkT4kFnJOIeXaZPDmzDtdwrSh+enJA16m8XV2cRNqKFhIx7AQMhAsF04aEAvVEKn3myVuwNoTYNXKkjZyuv6vggo77f+KbplSQyNFw2aY0XYX2veFuptFL5QIDD8nsLgSufZCpBCYf/IbeIKJQ3E1IgrRIQtvcMkt8+1vUL3mACx9FVx9D4KEDqzq+KwLhHHYInBZmsRFc1P29N9Wo4zxyucmjuE5N4umCV09FY9v9e1Vrja5ROwZB6Yo6pkatvsJ/tGmxJDRrdum18yToo8C6HY142SiRjMBr9A0xP5SiGK6u67DR0OgeJJqWuD+zAtil8sF4j4A4lNXJPq4gfrFFNwpbm7HPpDRCPSJHe6YBbaqy5hlV15oZK7qCs3CWQn6X8qZJ4J/Q7Tq9Jf8y/3gQeLJyFtScaYgUR8b9NconWtFV20tY14f291WWh8qMHaKY+onYcQy5X0muxjA=
+  app: devChat
+  on:
+    repo: addziedz/devChat
+
