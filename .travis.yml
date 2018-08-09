@@ -8,7 +8,7 @@ cache:
 deploy:
   provider: heroku
   api_key:
-    secure: HP6XYjgAXxoE3o3hfLLvgppNVlnBs0Vg3PWtG9vGiF3GZRSsRsvHMnvsicsTuu7/oUzRa+R7Cleq3BZJdIL7WA5dlx+MA4SHM6q5hBiUXZorStQTd3sWzeTJt7mYhogpCPvCjER74gItUDYoEZXqwKRfsTiWcBl3PZvHPiD7PY9UYWgPn3Oz9IkHMe7LtLbM+pb4bxUPwa4TgSStZBfliZpscJ+wgJzlP+P8YPw6r2bLxdpz2aiyEZ45wPWbKq4XACrv+qk1khe4W9nSwrXZnPqW69v2+cmbxRslxqnz62Lb1Na+ZXbZy2T2ELMEh89s758J+O7XlIvvvD4zK12RwJ/eTUV+jAMjLxOzBRKN+PnN+WtVfu/gOgBebGUTUxATHf8g2+b3tdas2hW/UblqtUxUarOGTc4gFWvs53BVSXubxm5J9oN+LBQXlHORuFSHOjxilp6VGOk5xmCtnJyTlUkfBDKoZEhsrmEYTl4e+z/eqqGsZPRf8kuDaQ2OJF8ZTvSDX1RrvXkZn5UWSgqEcDdpF2gV3JME3ZfYUQI+ySO3nSdIKIe9TSiBAPA3OhpVIiBDM0KoOtOZ4oBJOk2IDwHlfMSQ8oXD7vy7yIInIHyKmvr0wFK+QZ175Mo+MCo6LCVmlI+EFn4mkR2YSCA/O1wLekh2xs4Li6dt2iPru9w=
+    secure: 8977c78d-43f0-43b7-9346-485732f0fe8e
   app: devChat
   on:
     repo: addziedz/devChat
