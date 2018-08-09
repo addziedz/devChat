@@ -8,7 +8,7 @@ cache:
 deploy:
   provider: heroku
   api_key:
-    secure: 8977c78d-43f0-43b7-9346-485732f0fe8e
+    secure: "qYciHfGU5WqVxU6j6gGWEpG3nhyd4pYa8nnSioru/GMRZjtxSMSV9OCEJorsxTRJ8/zNwwyhfmjwMpuY/k7/ssgwIRPyVF9/r/cfgSJaPrCXwu3fl5maCObmiL3sHEg3Vn0PjCCQPNyuVGj77Iqq5ZHnWa/86BEOSgEFsRYFCnMLX9DvzDBpVwalW69QKPHXiEGkVKuKjDabK+WJ7Hj40oKndO8sWGOIVAbtFMDgbkmN4sqaDMCUPJIEp7eo4tmuBh5/618LniSCVN69HAiSb5/YJ7Y3Pw/FWoiG0iVufPWPX6ViSvvRdKJevgsKM6VrNLGdBj/sWitbyOAm4nbH9CyNWSZkEaCC0XgjNdzEf+c+BN8+yVX97qoizvRf8+g536KEK5DzVC/cxS3CiHg8Qn/rAai26LSP9gbzGJ+zpVDKRmbNmSNOPfC/h9u6jIZhRXrSmtwGnwa+QF9MJ4rWhZaNDfDTZYS4Z1lzoSiWE/5cW92rNRsqoBsji9tSmiWhsDC8nt4heCeBLoLv/uPEN8oi0PxTmhTnZ8MYUPZcpehyPEn4eIOLP2t4MdlpTM443lgo0mRu8tB9zS+4L8TpGxsJO2+PUt5eMNYPzq3bKvujMNIDyrc1z1coFKa6/p4/sYTiS+5wUtxCrDBwRDOFiOYouyUPJkFppStIvTHWUqE="
   app: dev-chat-01
   on:
     repo: addziedz/devChat
