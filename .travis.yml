@@ -8,7 +8,7 @@ cache:
 deploy:
   provider: heroku
   api_key:
-    secure: 8977c78d-43f0-43b7-9346-485732f0fe8e
+    secure: $HEROKU_TOKEN
   app: dev-chat-01
   on:
     repo: addziedz/devChat
