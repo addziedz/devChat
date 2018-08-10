@@ -1,6 +1,13 @@
 language: node_js
 node_js:
 - '10.8.0'
+addons:
+  sonarcloud:
+    organization: devchat
+    token:
+      secure: $SONAR_TOKEN
+script:
+  - sonar-scanner
 cache:
   directories:
   - node_modules
