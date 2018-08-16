@@ -1,44 +1,115 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,900');
+@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
+    /*outline: none;*/
+}
+
+html {
+    height: 100%;
 }
 
 body {
-    font: 13px Helvetica, Arial;
+    font-family: "Montserrat", sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-#chat_message_control {
-    background: #000;
+p {
+    margin: 0;
+}
+
+.chat {
+    height: 100%;
+}
+
+.chat-active-username {
+    margin: 0;
+    padding: 1rem;
+    text-align: center;
+}
+
+.chat-message-panel {
+    background: whitesmoke;
     padding: 3px;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
 
-input {
-    border: 0;
-    padding: 10px;
-    width: 90%;
-    margin-right: 0.5%;
-}
-
-button {
-    width: 9%;
-    background: rgb(130, 224, 255);
-    border: none;
-    padding: 10px;
-}
-
-#chat_main_room {
+.chat-message-list {
     margin: 0;
     padding: 0;
 }
 
-#chat_main_room p {
+.chat-message-list p {
     padding: 5px 10px;
 }
 
-#chat_main_room p:nth-child(odd) {
+.chat-message-list p:nth-child(odd) {
     background: #eee;
 }
+
+.chat-message__input {
+    border: 0;
+    padding: 10px;
+    width: 85%;
+}
+
+.chat-button__send {
+    cursor: pointer;
+    width: 14%;
+    background: goldenrod;
+    border: none;
+    padding: 10px;
+}
+
+/*---------LOGIN---------*/
+
+.login-background {
+    background: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-form {
+    padding: 1rem;
+}
+
+.login-header,
+.login-main,
+.login-img {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.login-form-username,
+.login-form-button__login {
+    border: 0;
+    padding: 0.5rem;
+    height: 2.5rem;
+}
+
+.login-form-button__login:hover,
+.login-form-button__login:focus {
+    background: goldenrod;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.login-form-username {
+    margin-right: 0.5rem;
+}
+
+.login-form-button__login {
+    padding: 0.5rem 1rem;
+}
+
+
+

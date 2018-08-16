@@ -9,12 +9,18 @@ const config = require("./config");
     console.log(`App listening on port ${config.port}!`);
   });
 
-  // Tworzymy socket (io) po stronie serwera, ktory bedzie obslugiwal serwer
+    // Tworzymy home (io) po stronie serwera, ktory bedzie obslugiwal serwer
   const io = require("socket.io")(server);
-
+    // Zmienna dla usera ponieważ przy serwowaniu nowego html z backendu nawiązuje się nowe połączenie z socketem
+    // Problem zostanie rozwiązany jak podłączymy Reacta
+    let user;
   // io oczekuje socketa konkrentego klienta
-  io.on("connection", socket =>
+    io.on("connection", socket => {
+        // nasłuchujemy na pojawienie sie nowego uzytkownika, nastepnie zapisujemy jego username do zmiennej
+        socket.on("new_user", username => (user = username));
     // nasluchujemy na wiadomosc od konkretnego (pojedynczego) klienta i odpowiadamy jako serwer (io) do wszystkich klientow
-    socket.on("chat_message", msg => io.emit("chat_message", msg))
-  );
+        socket.on("chat_message", msg =>
+            io.emit("chat_message", {username: user, message: msg})
+        );
+    });
 })();

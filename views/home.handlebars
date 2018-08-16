@@ -1,5 +1,8 @@
-<div id="chat_main_room"></div>
-<div id="chat_message_control">
-    <input id="message" type="text" placeholder="Message"/>
-    <button id="send">Send</button>
+<div class="chat">
+    <h2 class="chat-active-username">{{{username}}}</h2>
+    <div class="chat-message-list" id="chat_main_room"></div>
+    <div class="chat-message-panel" id="chat_message_control">
+        <input class="chat-message__input" id="single_message" type="text" placeholder="Message" autofocus/>
+        <button class="chat-button__send" id="send_message">Send</button>
+    </div>
 </div>

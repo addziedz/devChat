@@ -1,6 +1,7 @@
 const routesFactory = require("./routes");
 const express = require("express");
 const exphbs = require("express-handlebars");
+const bodyParser = require("body-parser");
 
 module.exports = async function appFactory() {
   const app = express();
@@ -10,7 +11,7 @@ module.exports = async function appFactory() {
   app.set("view engine", "handlebars");
 
   app.use(express.static("public"));
-
+    app.use(bodyParser.urlencoded({extended: true}));
   app.use(routes);
 
   return app;
