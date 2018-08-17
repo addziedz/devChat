@@ -44,5 +44,5 @@ if (btn_send && message) {
 // Socket nasluchuje na zdarzenie 'chat' z serwera, po ktorym aktualizuje glowny okno czatu
 socket.on("chat_message", data => {
     chat_main_room.insertAdjacentHTML("beforeend", `<p><b>${data.message.user}: </b> ${data.message.msg}</p>`);
-    window.scrollTo(0, document.body.scrollHeight);
+    chat_main_room.scrollTo(0, chat_main_room.scrollHeight);
 });

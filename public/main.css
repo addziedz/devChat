@@ -20,7 +20,7 @@ body {
 
 p {
     margin: 0;
-    height: 2.5rem;
+    min-height: 2.5rem;
 }
 
 .chat {
@@ -28,21 +28,25 @@ p {
 }
 
 .chat-active-username {
+    height: 10vh;
     margin: 0;
-    padding: 1rem;
+    padding: 2rem;
     text-align: center;
 }
 
 .chat-message-panel {
+    bottom: 0;
     background: whitesmoke;
+    height: 5vh;
     padding: 3px;
     position: fixed;
-    bottom: 0;
     width: 100%;
 }
 
 .chat-message-list {
+    height: 85vh;
     margin: 0;
+    overflow-y: scroll;
     padding: 0;
 }
 
