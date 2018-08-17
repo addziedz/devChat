@@ -17,7 +17,7 @@ const config = require("./config");
   // io oczekuje socketa konkrentego klienta
     io.on("connection", socket => {
         // nasłuchujemy na pojawienie sie nowego uzytkownika, nastepnie zapisujemy jego username do zmiennej
-        socket.on("new_user", username => (user = username));
+        socket.on("new_user", username => (socket.user = username));
     // nasluchujemy na wiadomosc od konkretnego (pojedynczego) klienta i odpowiadamy jako serwer (io) do wszystkich klientow
         socket.on("chat_message", msg =>
             io.emit("chat_message", {username: user, message: msg})

@@ -20,6 +20,7 @@ body {
 
 p {
     margin: 0;
+    height: 2.5rem;
 }
 
 .chat {

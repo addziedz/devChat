@@ -7,6 +7,7 @@ const btn_send = document.getElementById("send_message");
 const chat_main_room = document.getElementById("chat_main_room");
 const username = document.getElementById("username_control");
 const btn_login = document.getElementById("btn_login");
+const active_username = document.getElementById("active_username");
 
 const sendMessage = () => {
     if (message.value) {
@@ -39,6 +40,6 @@ if (btn_send && message) {
 
 // Socket nasluchuje na zdarzenie 'chat' z serwera, po ktorym aktualizuje glowny okno czatu
 socket.on("chat_message", data => {
-    chat_main_room.insertAdjacentHTML("beforeend", `<p>${data.username}: ${data.message}</p>`);
+    chat_main_room.insertAdjacentHTML("beforeend", `<p><b>${active_username.innerHTML}:</b> ${data.message}</p>`);
     window.scrollTo(0, document.body.scrollHeight);
 });
