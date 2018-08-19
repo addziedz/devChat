@@ -10,8 +10,7 @@ install:
 - npm install
 script:
   - sonar-scanner
-  - nohup npm run start &
-  - sleep 3
+  - npm run start
   - npm run test
 cache:
   directories:
