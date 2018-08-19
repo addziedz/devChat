@@ -1,17 +1,23 @@
 language: node_js
 node_js:
-- '10.8.0'
+- "10.8.0"
 addons:
   sonarcloud:
     organization: devchat
     token:
       secure: $SONAR_TOKEN
+install:
+- npm install
+- npm run build
 script:
   - sonar-scanner
-  - npm run dev
+  - nohup npm run start &
+  - sleep 3
+  - npm run test
 cache:
   directories:
   - node_modules
+  - client/node_modules
 deploy:
   provider: heroku
   api_key:
