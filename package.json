@@ -3,10 +3,13 @@
     "format": "prettier --write \"{src,test}/**/*.js\"",
     "start": "node src/server.js",
     "test": "mocha --exit test",
-    "watch": "nodemon src/server.js"
+    "watch": "nodemon src/server.js",
+    "client": "cd client && npm start",
+    "dev": "concurrently \"npm run watch\" \"npm run client\""
   },
   "dependencies": {
     "body-parser": "1.18.3",
+    "concurrently": "^3.6.1",
     "express": "4.16.3",
     "express-handlebars": "3.0.0",
     "socket.io": "2.1.1"

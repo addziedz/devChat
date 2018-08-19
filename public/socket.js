@@ -1,7 +1,5 @@
-// Nawiazanie polaczenia - obiekt io dostajemy z dolaczonej biblioteki socket.io.js (patrz plik main.handlebars)
 const socket = io.connect();
 
-// Korzystamy z DOM API, aby uzyskac referencje do elementow drzewa
 const message = document.getElementById("single_message");
 const btn_send = document.getElementById("send_message");
 const chat_main_room = document.getElementById("chat_main_room");
@@ -20,7 +18,6 @@ const sendMessage = () => {
 };
 
 if (btn_login) {
-    // Po wpisaniu wiadomosci i kliknieciu przycisku send wysylamy login
     btn_login.addEventListener("click", () => {
         if (username.value) {
             socket.emit("new_user", username.value);
@@ -29,7 +26,6 @@ if (btn_login) {
 }
 
 if (btn_send && message) {
-    // Po wpisaniu wiadomosci i kliknieciu przycisku wyslij, wysylamy zdarzenie 'chat' do serwera poprzez socketa
     btn_send.addEventListener("click", () => {
         sendMessage();
     });
@@ -41,7 +37,6 @@ if (btn_send && message) {
     });
 }
 
-// Socket nasluchuje na zdarzenie 'chat' z serwera, po ktorym aktualizuje glowny okno czatu
 socket.on("chat_message", data => {
     chat_main_room.insertAdjacentHTML("beforeend", `<p><b>${data.message.user}: </b> ${data.message.msg}</p>`);
     chat_main_room.scrollTo(0, chat_main_room.scrollHeight);
