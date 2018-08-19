@@ -10,8 +10,9 @@ module.exports = async function appFactory() {
   app.engine("handlebars", exphbs({ defaultLayout: "main" }));
   app.set("view engine", "handlebars");
 
-  app.use(express.static("public"));
-    app.use(bodyParser.urlencoded({extended: true}));
+  // app.use(express.static("public"));
+  app.static(path.join(__dirname, "client/build"));
+  app.use(bodyParser.urlencoded({ extended: true }));
   app.use(routes);
 
   return app;

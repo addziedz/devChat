@@ -2,6 +2,7 @@
   "scripts": {
     "format": "prettier --write \"{src,test}/**/*.js\"",
     "start": "node src/server.js",
+    "heroku-postbuild": "cd client && npm install && npm run build",
     "test": "mocha --exit test",
     "watch": "nodemon src/server.js",
     "client": "cd client && npm start",
