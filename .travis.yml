@@ -8,6 +8,7 @@ addons:
       secure: $SONAR_TOKEN
 script:
   - sonar-scanner
+  - npm run dev
 cache:
   directories:
   - node_modules
