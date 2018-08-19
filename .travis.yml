@@ -8,7 +8,6 @@ addons:
       secure: $SONAR_TOKEN
 install:
 - npm install
-- npm run build
 script:
   - sonar-scanner
   - nohup npm run start &
