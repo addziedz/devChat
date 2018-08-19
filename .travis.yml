@@ -12,7 +12,7 @@ script:
   - sonar-scanner
   - nohup npm run start &
   - sleep 3
-  - npm run test
+  - npm run heroku-postbuild
 cache:
   directories:
   - node_modules
