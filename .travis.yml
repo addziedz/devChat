@@ -11,6 +11,7 @@ install:
 script:
   - sonar-scanner
   - npm run start
+  - npm run heroku-postbuild
   - npm run test
 cache:
   directories:
