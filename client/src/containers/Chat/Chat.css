@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,400,900');
+@import url('https://fonts.googleapis.com/css?family=Anton');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+* {
+    box-sizing: border-box;
+    /*outline: none;*/
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    min-height: 2.5rem;
+}
+
+.chat {
+    height: 100%;
+}
+
+.chat-active-username {
+    height: 10vh;
+    margin: 0;
+    padding: 2rem;
+    text-align: center;
+}
+
+.chat-message-panel {
+    bottom: 0;
+    background: whitesmoke;
+    height: 5vh;
+    padding: 3px;
+    position: fixed;
+    width: 100%;
+}
+
+.chat-message-list {
+    height: 85vh;
+    margin: 0;
+    overflow-y: scroll;
+    padding: 0;
+}
+
+.chat-message-list p {
+    padding: 5px 10px;
+}
+
+.chat-message-list p:nth-child(odd) {
+    background: #eee;
+}
+
+.chat-message__input {
+    border: 0;
+    padding: 10px;
+    width: 85%;
+}
+
+.chat-button__send {
+    cursor: pointer;
+    width: 14%;
+    background: goldenrod;
+    border: none;
+    padding: 10px;
+}
+
+/*---------LOGIN---------*/
+
+.login-background {
+    background: whitesmoke;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.login-form {
+    padding: 1rem;
+}
+
+.login-header,
+.login-main,
+.login-img {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.login-form-username,
+.login-form-button__login {
+    border: 0;
+    padding: 0.5rem;
+    height: 2.5rem;
+}
+
+.login-form-button__login:hover,
+.login-form-button__login:focus {
+    background: goldenrod;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+.login-form-username {
+    margin-right: 0.5rem;
+}
+
+.login-form-button__login {
+    padding: 0.5rem 1rem;
+}
+
+
+
