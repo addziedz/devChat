@@ -1,11 +1,16 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import io from "socket.io-client";
 import "./Chat.css";
 
 class Chat extends Component {
 
   initSocket = () => {
-      const socket = io();
+    let socket;
+    if (process.env.NODE_ENV === "production") {
+      socket = io();
+    } else {
+      socket = io("http://localhost:5000");
+    }
     socket.on("connect", () => {
       console.log("Connected");
     });
