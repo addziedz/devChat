@@ -5,7 +5,7 @@ import "./Chat.css";
 class Chat extends Component {
 
   initSocket = () => {
-      const socket = io("http://localhost");
+      const socket = io("https://dev-chat-01.herokuapp.com");
     socket.on("connect", () => {
       console.log("Connected");
     });
