@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import io from "socket.io-client";
 import "./Chat.css";
 
 class Chat extends Component {
 
   initSocket = () => {
-    const socket = io("http://localhost:5000");
+      const socket = io("http://localhost");
     socket.on("connect", () => {
       console.log("Connected");
     });
