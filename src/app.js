@@ -12,20 +12,13 @@ module.exports = async function appFactory() {
         res.send({express: 'Hello From Express'});
     });
 
-    if (process.env.NODE_ENV === 'production') {
-        // app.use(express.static(path.join(__dirname, "/client")));
-        // app.use(express.static(path.join(__dirname, "/client/build")));
-        // app.get('*', function (req, res) {
-        //     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
-        // });
-        app.use(express.static("/client"));
-        app.use(express.static("/client/build"));
-        app.get('*', function (req, res) {
-            res.sendFile('client/build/index.html');
-        });
+    if (process.env.NODE_ENV === "production") {
+        app.use(express.static("client/build"));
+    } else {
+        app.use(express.static("public"));
     }
-    // app.use(bodyParser.urlencoded({ extended: true }));
-    // app.use(routes);
+    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(routes);
 
   return app;
 };
