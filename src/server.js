@@ -8,7 +8,7 @@ const config = require("./config");
     console.log(`App listening on port ${config.port}!`);
   });
 
-  const io = require("socket.io")(server);
+    const io = require("socket.io").listen(server);
   io.on("connection", socket => {
     console.log("User connected!!!");
     socket.on("chat_message", (msg, user) =>
