@@ -18,9 +18,9 @@ module.exports = async function routes() {
   //   }
   // });
 
-  router.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname + "/client/build/index.html"));
-  });
+  // router.get("*", (req, res) => {
+  //   res.sendFile(path.join(__dirname + "/client/build/index.html"));
+  // });
 
   return router;
 };
