@@ -11,8 +11,9 @@ module.exports = async function appFactory() {
         res.send({express: 'Hello From Express'});
     });
 
-    if (process.env.NODE_ENV === 'production') {
-        app.use(express.static(path.join(__dirname, "/client/build")));
+    if (process.env.NODE_ENV === 'production')
+        app.use(express.static(path.join(__dirname, "/client")));
+    app.use(express.static(path.join(__dirname, "/client/build")));
         app.get('*', function (req, res) {
             res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
         });
