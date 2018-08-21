@@ -6,7 +6,8 @@
     "test": "mocha --exit test",
     "start": "node src/server.js",
     "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
-    "format": "prettier --write \"{src,test}/**/*.js\""
+    "format": "prettier --write \"{src,test}/**/*.js\"",
+    "reinstall": "npm install && cd client && npm install"
   },
   "dependencies": {
     "body-parser": "1.18.3",
