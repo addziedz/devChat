@@ -3,7 +3,7 @@ module.exports = async function routes() {
   const path = require("path");
 
   router.get("/", (req, res) => {
-      res.sendFile("app/client/build/index.html");
+      res.sendFile(path.join("/app/client/build/index.html"));
   });
 
   router.get("/client-test", (req, res) => {
