@@ -6,17 +6,22 @@ const path = require("path");
 module.exports = async function appFactory() {
   const app = express();
   const routes = await routesFactory();
-    const __dirname = path.resolve(path.dirname(decodeURI(new URL(import.meta.url).pathname)));
+    //const __dirname = path.resolve(path.dirname(decodeURI(new URL(import.meta.url).pathname)));
 
     app.get('/api/hello', (req, res) => {
         res.send({express: 'Hello From Express'});
     });
 
     if (process.env.NODE_ENV === 'production') {
-        app.use(express.static(path.join(__dirname, "/client")));
-        app.use(express.static(path.join(__dirname, "/client/build")));
+        // app.use(express.static(path.join(__dirname, "/client")));
+        // app.use(express.static(path.join(__dirname, "/client/build")));
+        // app.get('*', function (req, res) {
+        //     res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+        // });
+        app.use(express.static("/client"));
+        app.use(express.static("/client/build"));
         app.get('*', function (req, res) {
-            res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+            res.sendFile('client/build/index.html');
         });
     }
     // app.use(bodyParser.urlencoded({ extended: true }));
