@@ -6,6 +6,7 @@ const path = require("path");
 module.exports = async function appFactory() {
   const app = express();
   const routes = await routesFactory();
+    const __dirname = path.resolve(path.dirname(decodeURI(new URL(import.meta.url).pathname)));
 
     app.get('/api/hello', (req, res) => {
         res.send({express: 'Hello From Express'});
