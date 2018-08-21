@@ -7,7 +7,8 @@ module.exports = async function appFactory() {
   const app = express();
   const routes = await routesFactory();
 
-  app.use(express.static(path.join(__dirname, "/client/build")));
+    app.use(express.static(path.join(__dirname, "/client/build/static/css")));
+    app.use(express.static(path.join(__dirname, "/client/build/static/js")));
   app.use(bodyParser.urlencoded({ extended: true }));
   app.use(routes);
 
