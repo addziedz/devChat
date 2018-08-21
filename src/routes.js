@@ -2,9 +2,9 @@ module.exports = async function routes() {
   const router = require("express").Router();
   const path = require("path");
 
-  // router.get("/", (req, res) => {
-  //   res.render("login");
-  // });
+  router.get("/", (req, res) => {
+      res.sendFile(path.join("/client/build/index.html"));
+  });
 
   router.get("/client-test", (req, res) => {
     res.json({ test: "Connection with server established successfully!" });
