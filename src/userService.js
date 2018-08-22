@@ -23,18 +23,3 @@ module.exports = function UserService() {
         removeUser
     };
 };
-// function userService(){
-//     return {
-//         getAllUsers() {
-//             return [];
-//         }
-//     }
-// }
-// module.exports = function userService() {
-//     let users = [];
-//     return {
-//         getAllUsers() {
-//             return users;
-//         }
-//     }
-// };

@@ -7,13 +7,6 @@ class App extends Component {
     super();
     this.state = {};
   }
-
-    // componentDidMount() {
-    //   fetch("/client-test")
-    //     .then(res => res.json())
-    //     .then(data => this.setState({ ...data }));
-    // }
-
   render() {
     return (
         <div className="App">
