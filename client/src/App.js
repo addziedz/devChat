@@ -1,5 +1,6 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import Chat from "./containers/Chat/Chat";
+import './App.css';
 
 class App extends Component {
   constructor() {
@@ -7,16 +8,15 @@ class App extends Component {
     this.state = {};
   }
 
-  componentDidMount() {
-    fetch("/client-test")
-      .then(res => res.json())
-      .then(data => this.setState({ ...data }));
-  }
+    // componentDidMount() {
+    //   fetch("/client-test")
+    //     .then(res => res.json())
+    //     .then(data => this.setState({ ...data }));
+    // }
 
   render() {
     return (
-      <div>
-        <p>{this.state.test}</p>
+        <div className="App">
         <Chat user="user1"/>
       </div>
     );

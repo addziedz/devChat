@@ -1,14 +1,13 @@
 {
   "scripts": {
     "client": "npm start --prefix client",
-    "server": "nodemon src/server.js",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" \"npm run client\"",
-    "test": "mocha --exit test",
-    "start": "node src/server.js",
-    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
     "format": "prettier --write \"{src,test}/**/*.js\"",
+    "heroku-postbuild": "npm install --prefix client && npm run build --prefix client",
     "reinstall": "npm install && cd client && npm install",
-    "build": "concurrently \"npm run server\" \"npm run client\""
+    "server": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "test": "mocha --exit test"
   },
   "dependencies": {
     "body-parser": "1.18.3",

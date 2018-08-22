@@ -1,44 +1,92 @@
-import React, { Component } from "react";
+import React, {Component} from "react";
 import io from "socket.io-client";
+import MessageList from '../../components/MessageList/MessageList';
+import MessageForm from '../MessageForm/MessageForm';
+import UserList from '../../components/UserList/UserList';
 import "./Chat.css";
+
+const socket = io('/');
 
 class Chat extends Component {
 
-  initSocket = () => {
-    let socket;
-    if (process.env.NODE_ENV === "production") {
-      socket = io();
-    } else {
-      socket = io("http://localhost:5000");
+    constructor(props) {
+        super(props);
+        this.state = {
+            users: [],
+            messages: [],
+            text: '',
+            username: ''
+        }
     }
-    socket.on("connect", () => {
-      console.log("Connected");
-    });
-    this.setState({ socket });
-  };
 
-  constructor(props) {
-    super(props);
-
-    this.state = {
-      socket: null
-    };
-  }
+    // initSocket = () => {
+    //   let socket;
+    //   if (process.env.NODE_ENV === "production") {
+    //     socket = io();
+    //   } else {
+    //     socket = io("http://localhost:5000");
+    //   }
+    //   socket.on("connect", () => {
+    //     console.log("Connected");
+    //   });
+    // };
 
   componentWillMount() {
-    this.initSocket();
+      // this.initSocket();
+      this.setUsername();
   }
+
+    componentDidMount() {
+        socket.on('message', message => this.messageReceive(message));
+        socket.on('updateUsers', ({users}) => this.chatUpdate(users));
+    }
+
+    chatUpdate(users) {
+        this.setState({users});
+    }
+
+    setUsername() {
+        const username = `Guest ${Math.floor(Math.random() * 10)}`;
+        this.setState({username});
+        socket.emit('join', username);
+    }
+
+    messageReceive(message) {
+        const messages = [message, ...this.state.messages];
+        this.setState({messages});
+    }
+
+    handleMessageSubmit(message) {
+        this.messageReceive(message);
+        socket.emit('message', message);
+    }
 
   render() {
     return (
-      <div className="chat">
-        <h2 className="chat-active-username" id="active_username">{this.props.user}</h2>
-        <div className="chat-message-list" id="chat_main_room"></div>
-        <div className="chat-message-panel" id="chat_message_control">
-          <input className="chat-message__input" id="single_message" type="text" placeholder="Message" autoFocus/>
-          <button className="chat-button__send" id="send_message">Send</button>
+        <div className="Chat">
+            <div className="ChatHeader">
+                <div className="ChatTitle">
+                    DevChat
+                </div>
+                <div className="ChatRoom">
+                    Kitowcy-room
+                </div>
+            </div>
+            <div className="ChatBody">
+                <UserList
+                    users={this.state.users}
+                />
+                <div className="MessageWrapper">
+                    <MessageList
+                        messages={this.state.messages}
+                    />
+                    <MessageForm
+                        username={this.state.username}
+                        onMessageSubmit={message => this.handleMessageSubmit(message)}
+                    />
+                </div>
+            </div>
         </div>
-      </div>
     );
   }
 }
