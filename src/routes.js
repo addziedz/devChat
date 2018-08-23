@@ -6,10 +6,6 @@ module.exports = async function routes() {
       res.sendFile(path.join("/app/client/build/index.html"));
   });
 
-  router.get("/client-test", (req, res) => {
-    res.json({ test: "Connection with server established successfully!" });
-  });
-
   // router.post("/main", (req, res) => {
   //   if (req.body.username) {
   //     res.render("home", {

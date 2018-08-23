@@ -1,0 +1,7 @@
+.Message:nth-child(odd) {
+    background-color: whitesmoke;
+}
+
+.Message {
+    padding: 0.5rem;
+}
