@@ -29,6 +29,7 @@ export default class MessageForm extends Component {
                     onChange={e => this.changeHandler(e)}
                     placeholder="Message"
                     value={this.state.text}
+                    required
                 />
             </form>
         );

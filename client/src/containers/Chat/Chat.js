@@ -53,6 +53,8 @@ class Chat extends Component {
 
     messageReceive(message) {
         const messages = [...this.state.messages, message];
+        console.log(this.state.username);
+        console.log(message.from);
         this.setState({messages});
     }
 
@@ -79,6 +81,7 @@ class Chat extends Component {
                 <div className="MessageWrapper">
                     <MessageList
                         messages={this.state.messages}
+                        currentUser={this.state.username}
                     />
                     <MessageForm
                         username={this.state.username}
