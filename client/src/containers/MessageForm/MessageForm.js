@@ -15,9 +15,11 @@ export default class MessageForm extends Component {
         };
         this.props.onMessageSubmit(message);
         this.setState({text: ''});
+        this.props.onMessageTyping(e.target.value);
     }
 
     changeHandler(e) {
+        this.props.onMessageTyping(e.target.value);
         this.setState({text: e.target.value});
     }
 
@@ -29,6 +31,7 @@ export default class MessageForm extends Component {
                     onChange={e => this.changeHandler(e)}
                     placeholder="Message"
                     value={this.state.text}
+                    required
                 />
             </form>
         );

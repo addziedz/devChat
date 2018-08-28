@@ -1,0 +1,27 @@
+.MessageTyping {
+    padding: 1rem;
+    color: cornflowerblue;
+}
+
+.MessageTyping:after {
+    /*content: '\270F';*/
+    content: '\270E';
+    animation: slide 1s linear infinite;
+    font-size: 1.5rem;
+    transform: rotate(50deg) translateY(-50%);
+    color: lightskyblue;
+}
+
+@keyframes slide {
+    0% {
+        margin-left: 0.5%;
+    }
+
+    50% {
+        margin-left: 1%;
+    }
+
+    100% {
+        margin-left: 0.5%;
+    }
+}

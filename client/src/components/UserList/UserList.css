@@ -1,7 +1,7 @@
 .Users {
     display: flex;
     flex: 1;
-    width: 25vw;
+    width: 20vw;
     justify-content: flex-start;
     flex-direction: column;
     border-right: 1px solid #ccc;
@@ -11,6 +11,20 @@
     padding: 20px;
     text-align: center;
     background: #ccc;
+}
+
+.UserStatus {
+    margin-left: 14px;
+    font-size: small;
+    color: darkgrey;
+}
+
+.UserStatusColor {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: mediumseagreen;
+    border-radius: 20px;
 }
 
 .UsersList {

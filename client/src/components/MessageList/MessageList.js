@@ -10,6 +10,7 @@ const messageList = (props) => {
                 key={idx}
                 from={message.from}
                 text={message.text}
+                currentUser={props.currentUser}
             />
         )
     });

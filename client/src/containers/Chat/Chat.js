@@ -4,20 +4,15 @@ import MessageList from '../../components/MessageList/MessageList';
 import MessageForm from '../MessageForm/MessageForm';
 import UserList from '../../components/UserList/UserList';
 import "./Chat.css";
+import MessageTyping from "../../components/MessageTyping/MessageTyping";
 
 const socket = io('/');
 
 class Chat extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            users: [],
-            messages: [],
-            text: '',
-            username: ''
-        }
-    }
+    typingReceive = (username) => {
+        this.setState({typing: username})
+    };
 
     // initSocket = () => {
     //   let socket;
@@ -36,10 +31,9 @@ class Chat extends Component {
       this.setUsername();
   }
 
-    componentDidMount() {
-        socket.on('message', message => this.messageReceive(message));
-        socket.on('updateUsers', ({users}) => this.chatUpdate(users));
-    }
+    handleTypingSubmit = (typingMessage) => {
+        typingMessage ? socket.emit('typing', this.state.username) : socket.emit('typing', typingMessage);
+    };
 
     chatUpdate(users) {
         this.setState({users});
@@ -53,12 +47,31 @@ class Chat extends Component {
 
     messageReceive(message) {
         const messages = [...this.state.messages, message];
+        console.log(this.state.username);
+        console.log(message.from);
         this.setState({messages});
     }
 
     handleMessageSubmit(message) {
         this.messageReceive(message);
         socket.emit('message', message);
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            users: [],
+            messages: [],
+            text: '',
+            username: '',
+            typing: '',
+        }
+    }
+
+    componentDidMount() {
+        socket.on('message', message => this.messageReceive(message));
+        socket.on('updateUsers', ({users}) => this.chatUpdate(users));
+        socket.on('typing', username => this.typingReceive(username));
     }
 
   render() {
@@ -68,8 +81,11 @@ class Chat extends Component {
                 <div className="ChatTitle">
                     DevChat
                 </div>
-                <div className="ChatRoom">
+                <div className="ChatCurrentlyRoom">
                     Kitowcy-room
+                </div>
+                <div className="ChatUserSettings">
+                    User Settings
                 </div>
             </div>
             <div className="ChatBody">
@@ -79,12 +95,16 @@ class Chat extends Component {
                 <div className="MessageWrapper">
                     <MessageList
                         messages={this.state.messages}
+                        currentUser={this.state.username}
                     />
+                    {this.state.typing ? <MessageTyping typing={this.state.typing}/> : null}
                     <MessageForm
                         username={this.state.username}
                         onMessageSubmit={message => this.handleMessageSubmit(message)}
+                        onMessageTyping={typing => this.handleTypingSubmit(typing)}
                     />
                 </div>
+                <div className="ChatRoom">ROOMS</div>
             </div>
         </div>
     );

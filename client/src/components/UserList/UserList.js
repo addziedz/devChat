@@ -5,7 +5,9 @@ const userList = (props) => {
     const userList = props.users.map(user => {
         return (
             <li key={user.id} className="UserItem">
+                <div className="UserStatusColor"></div>
                 {user.username}
+                <div className='UserStatus'>Online</div>
             </li>
         );
     });
