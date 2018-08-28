@@ -4,6 +4,7 @@ import MessageList from '../../components/MessageList/MessageList';
 import MessageForm from '../MessageForm/MessageForm';
 import UserList from '../../components/UserList/UserList';
 import "./Chat.css";
+import MessageTyping from "../../components/MessageTyping/MessageTyping";
 
 const socket = io('/');
 
@@ -74,17 +75,17 @@ class Chat extends Component {
     }
 
   render() {
-      const someoneTyping = (
-          <div className="MessageTyping">{this.state.typing} is Typing...</div>
-      );
     return (
         <div className="Chat">
             <div className="ChatHeader">
                 <div className="ChatTitle">
                     DevChat
                 </div>
-                <div className="ChatRoom">
+                <div className="ChatCurrentlyRoom">
                     Kitowcy-room
+                </div>
+                <div className="ChatUserSettings">
+                    User Settings
                 </div>
             </div>
             <div className="ChatBody">
@@ -96,13 +97,14 @@ class Chat extends Component {
                         messages={this.state.messages}
                         currentUser={this.state.username}
                     />
-                    {this.state.typing ? someoneTyping : null}
+                    {this.state.typing ? <MessageTyping typing={this.state.typing}/> : null}
                     <MessageForm
                         username={this.state.username}
                         onMessageSubmit={message => this.handleMessageSubmit(message)}
                         onMessageTyping={typing => this.handleTypingSubmit(typing)}
                     />
                 </div>
+                <div className="ChatRoom">ROOMS</div>
             </div>
         </div>
     );
