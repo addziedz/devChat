@@ -2,10 +2,10 @@
 /*background-color: lightskyblue;*/
 /*}*/
 
-.Message {
+.MessageOther {
     margin: 1px 0;
     padding: 0.25rem;
-    display: flex;
+    /*display: flex;*/
     align-items: center;
     justify-content: stretch;
     transition: transform 0.3s ease-out;
@@ -13,45 +13,52 @@
     /*position: relative;*/
 }
 
-.MessageOther {
+.Message {
     margin: 1px 0;
     padding: 0.25rem;
-    display: flex;
+    /*display: flex;*/
     align-items: center;
     justify-content: stretch;
+    text-align: end;
     /*flex-direction: row-reverse;*/
     /*flex-direction: column;*/
     /*position: relative;*/
 }
 
-.MessageUser {
+.MessageOtherUser {
     /*display: inline-block;*/
     flex: 1;
     margin-right: 8px;
     text-align: center;
+    display: inline-block;
 }
 
-.MessageOtherUser {
+.MessageUser {
     flex: 1;
     margin-left: 8px;
     text-align: center;
-}
-
-.MessageText {
-    flex: 2;
-    padding: 0.5rem 1rem;
-    border-radius: 20px 15px 15px 5px;
-    background: lightskyblue;
-    box-shadow: 5px 5px 5px grey;
+    display: inline-block;
 }
 
 .MessageOtherText {
-    flex: 2;
+    max-width: 60%;
+    padding: 0.5rem 1rem;
+    border-radius: 20px 15px 15px 5px;
+    background: #dadada;
+    box-shadow: 5px 5px 5px grey;
+    display: inline-block;
+    word-break: break-word;
+}
+
+.MessageText {
+    max-width: 60%;
     padding: 0.5rem 1rem;
     border-radius: 15px 20px 5px 15px;
-    background: #dadada;
+    background: lightskyblue;
     box-shadow: -5px 5px 5px grey;
     text-align: end;
+    display: inline-block;
+    word-break: break-word;
 }
 
 .MessageTime {
@@ -59,7 +66,8 @@
     text-align: center;
     font-size: small;
     color: darkgrey;
-    margin: 0 auto;
+    margin: 0 0.5rem;
+    display: inline-block;
 }
 
 @media (min-width: 500px) {
@@ -69,13 +77,5 @@
 
     .MessageOtherText {
         flex: 8;
-    }
-
-    .MessageTime {
-        flex: 1;
-        text-align: center;
-        font-size: small;
-        color: darkgrey;
-        margin: 0 5px;
     }
 }

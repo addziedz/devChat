@@ -9,15 +9,9 @@ const socket = io('/');
 
 class Chat extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            users: [],
-            messages: [],
-            text: '',
-            username: ''
-        }
-    }
+    typingReceive = (username) => {
+        this.setState({typing: username})
+    };
 
     // initSocket = () => {
     //   let socket;
@@ -36,10 +30,9 @@ class Chat extends Component {
       this.setUsername();
   }
 
-    componentDidMount() {
-        socket.on('message', message => this.messageReceive(message));
-        socket.on('updateUsers', ({users}) => this.chatUpdate(users));
-    }
+    handleTypingSubmit = (typingMessage) => {
+        typingMessage ? socket.emit('typing', this.state.username) : socket.emit('typing', typingMessage);
+    };
 
     chatUpdate(users) {
         this.setState({users});
@@ -63,7 +56,27 @@ class Chat extends Component {
         socket.emit('message', message);
     }
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            users: [],
+            messages: [],
+            text: '',
+            username: '',
+            typing: '',
+        }
+    }
+
+    componentDidMount() {
+        socket.on('message', message => this.messageReceive(message));
+        socket.on('updateUsers', ({users}) => this.chatUpdate(users));
+        socket.on('typing', username => this.typingReceive(username));
+    }
+
   render() {
+      const someoneTyping = (
+          <div className="MessageTyping">{this.state.typing} is Typing...</div>
+      );
     return (
         <div className="Chat">
             <div className="ChatHeader">
@@ -83,9 +96,11 @@ class Chat extends Component {
                         messages={this.state.messages}
                         currentUser={this.state.username}
                     />
+                    {this.state.typing ? someoneTyping : null}
                     <MessageForm
                         username={this.state.username}
                         onMessageSubmit={message => this.handleMessageSubmit(message)}
+                        onMessageTyping={typing => this.handleTypingSubmit(typing)}
                     />
                 </div>
             </div>

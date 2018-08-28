@@ -36,7 +36,12 @@ const userService = require("./userService");
                 text: message.text,
                 from: message.from
             });
-            console.log(message.text + " " + message.from);
+            // console.log(message.text + " " + message.from);
+        });
+
+        socket.on('typing', username => {
+            console.log(username);
+            socket.broadcast.emit('typing', username);
         });
   });
 })();
