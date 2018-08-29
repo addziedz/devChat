@@ -1,16 +1,13 @@
-import React, {Component} from "react";
-import Chat from "./containers/Chat/Chat";
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import LoginForm from "./components/LoginForm/LoginForm";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
-  }
   render() {
     return (
         <div className="App">
-        <Chat user="user1"/>
+          {/*<Chat user="user1"/>*/}
+          <LoginForm/>
       </div>
     );
   }
